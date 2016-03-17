@@ -25,3 +25,23 @@ These may also be useful commands:
 And a hint to help you on your way. Remember that every GPU program has
 two parts: a CPU part and a GPU part. To run this example you will have
 to engage, at a minimum, at least 1 CPU and at least 1 GPU.
+
+COMMENT:
+
+There are 7 errors             
+1. cuda_thrust.cu line 1 and line 2: 
+   includes should not be commented
+2. cuda_thrust.cu line 24: (ternary operator is wrong)
+   return (((p.x-0.5)*(p.x-0.5)+(p.y-0.5)*(p.y-0.5))<0.25) ? 1 : 0;
+3. cuda_thrust.cu line 28
+   __device__ instead **device**
+4. cuda_thrust.pbs line 4
+   ncpus=1
+5. cuda_thrust.pbs line 18
+   ./cuda-thrust
+6. cuda-thrust.pbs
+   cd $PBS_O_WORKDIR shoudnt be commented
+7. makefile line 5
+   source should be cuda-thrust.cu not cuda-thrust.c
+
+
